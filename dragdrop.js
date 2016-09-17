@@ -132,7 +132,7 @@ function init() {
     
     // _PHASE = 0 for logging of event capturing and bubbling
     // _PHASE = 1 for interface functionality
-    const _PHASE = 1;
+    const _PHASE = 0;
     
     // Declaring variables here in order to play well with strict mode.
     var _selectedPiece = null;
