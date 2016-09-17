@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- www.github.com/chriswsh || www.chriswsh.com -->
+<html>
+    <head>
+        <title>Vanilla JS Drag and Drop Interface</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <!-- Style here for less files to download and easier discussion. Separate/minify for production environment -->
+        <style type="text/css">        
+            table.board {
+                margin: 5em auto; /* center the table, bring it down from top */
+            }
+            
+            table.board td {
+                border: 1px solid black;
+                font-size: 1.75em;
+                height: 2.5em;
+                width: 2.5em;
+                min-height: 2.5em;
+                min-width: 2.5em;
+                vertical-align: center;
+                text-align: center;
+            }
+            
+			.light-square {
+				background-color: #fffdf4;
+				color: #145214;
+			}
+			
+			.dark-square {
+				background-color: #145214;
+				color: #fffdf4;
+			}
+            
+			.light-piece {
+				color: cornsilk;
+				text-shadow:
+					-1px -1px 0 #2A1501,
+					1px -1px 0 #2A1501,
+					-1px 1px 0 #2A1501,
+					1px 1px 0 #2A1501;
+            }
+			
+			.dark-piece {
+				color: #2A1501;
+				text-shadow:
+					-1px -1px 0 cornsilk,
+					1px -1px 0 cornsilk,
+					-1px 1px 0 cornsilk,
+					1px 1px 0 cornsilk;
+			}
+            
+            /* Increase the redraw box boundary to fix junk pixel trails due to anti-aliasing */
+            .piece span {
+                outline: 2px solid transparent;
+            }
+			
+            /* Create cursor indicator */
+			.draggable-cursor {
+				cursor: -webkit-grab;
+				cursor: -moz-grab;
+				cursor: url(http://ssl.gstatic.com/ui/v1/icons/mail/images/2/openhand.cur);
+                z-index: 99; /* always on top */
+			}
+        </style>
+    </head>
+    <body onload="init()">
+        <table class="board">
+            <tr class="table-row">
+                <td class="square light-square" id="A2">
+                    <div class="piece light-piece draggable-cursor">
+                        <span class="glyphicon glyphicon-king">
+                        </span>
+                    </div>
+                </td>
+                <td class="square dark-square" id="B2"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="square dark-square" id="A1">
+                    <!--<div class="piece dark-piece draggable-cursor">
+                        <span class="glyphicon glyphicon-bishop">
+                        </span>
+                    </div>-->
+                </td>
+                <td class="square light-square" id="B1"></td>
+            </tr>
+        </table>
+    <script src="dragdrop.js"></script>
+   </body>
+</html>
